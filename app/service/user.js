@@ -1,6 +1,7 @@
 'use strict';
 
 const Service = require('egg').Service;
+const crypto = require('crypto');
 
 class UserService extends Service {
   /**
@@ -20,6 +21,11 @@ class UserService extends Service {
   async getUserInfo(query = {}) {
     const result = await this.ctx.model.User.findOne(query)
     return result
+  }
+
+  // 专门对数据进行md5加密的方法，输入明文返回密文
+  getMd5Data(data) {
+    return crypto.createHash('md5').update(data).digest('hex');
   }
 }
 

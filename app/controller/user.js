@@ -24,8 +24,8 @@ class UserController extends Controller {
       return
     }
 
-    // 把phone当做主键唯一值
-    const result = await ctx.service.user.getUserInfo({ phone: data.phone });
+    const result = await ctx.service.user.getUserInfo({ phone: data.phone }); // 把phone当做主键唯一值
+    data.password = ctx.service.user.getMd5Data(data.password); // 密码加密
 
     // 未注册用户直接注册，否则校验数据合法性
     if (!result) {
