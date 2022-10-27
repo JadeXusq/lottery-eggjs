@@ -33,7 +33,10 @@ class UserController extends Controller {
   // 获取中奖名单，取最新20名
   async getRankList() {
     const { ctx } = this
-    const result = await ctx.service.prize.getRankList()
+    const data = ctx.request.body || {}; // 获取用户端传递过来的参数
+
+    const result = await ctx.service.prize.getRankList(data.query, data.sort, data.limit) // 支持用户端传参，默认不传取最新20条数据
+
     ctx.body = {
       param: result.map(item => ({
         phone: item.phone,
