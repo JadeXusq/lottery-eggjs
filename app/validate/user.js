@@ -7,8 +7,8 @@ module.exports = app => {
     if (/^\d+$/.test(value)) {
       return "用户名应该是字符串";
     }
-    else if (value.length < 3 || value.length > 10) {
-      return "用户名的长度应该在3-10之间"
+    else if (value.length < 2 || value.length > 20) {
+      return "用户名的长度应该在2-20之间"
     }
   });
 
