@@ -13,8 +13,8 @@ class UserController extends Controller {
 
     // 校验数据合法性
     const errs = app.validator.validate({
-      userName: 'string',
-      phone: 'string',
+      userName: 'userName',
+      phone: 'phone',
       password: 'password'
     }, data);
 
