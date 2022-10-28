@@ -2,6 +2,8 @@
 
 'use strict';
 
+const { responseConfig } = require('../app/constant')
+
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -19,12 +21,7 @@ module.exports = appInfo => {
   config.middleware = ['authorization', 'httpMethod', 'responseFormat'];
 
   // 默认格式化配置
-  config.responseFormat = {
-    successMessage: '操作成功',
-    successCode: '00000',
-    errorMessage: '未知错误',
-    errorCode: '99999'
-  }
+  config.responseFormat = responseConfig
 
   // 配置免校验登录信息白名单
   config.authorization = {

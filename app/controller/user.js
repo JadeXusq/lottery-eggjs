@@ -1,6 +1,7 @@
 'use strict';
 
 const Controller = require('egg').Controller;
+const { tokenExpiresIn } = require('../constant')
 
 class UserController extends Controller {
   // 登录接口
@@ -47,7 +48,7 @@ class UserController extends Controller {
     }, app.config.jwt.secret, {
       // 过期时间格式
       /** expressed in seconds or a string describing a time span [zeit/ms](https://github.com/zeit/ms.js).  Eg: 60, "2 days", "10h", "7d" */
-      expiresIn: 60 * 60 * 2, // 2h
+      expiresIn: tokenExpiresIn
     });
 
     ctx.body = {
