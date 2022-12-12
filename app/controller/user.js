@@ -44,7 +44,7 @@ class UserController extends Controller {
     const token = app.jwt.sign({
       userName: data.userName,
       phone: data.phone,
-      password: data.password
+      // password: data.password // 密码不允许放到jwt里面
     }, app.config.jwt.secret, {
       // 过期时间格式
       /** expressed in seconds or a string describing a time span [zeit/ms](https://github.com/zeit/ms.js).  Eg: 60, "2 days", "10h", "7d" */
