@@ -47,7 +47,7 @@ module.exports = appInfo => {
 
   config.mongoose = {
     client: {
-      url: 'mongodb://xsq:123@127.0.0.1:27017/', // 增加mongodb登录校验
+      url: 'mongodb://xsq:123@localhost:27017/lottery', // 增加mongodb登录校验
       options: {},
     },
   };
